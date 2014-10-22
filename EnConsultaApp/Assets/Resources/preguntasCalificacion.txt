@@ -1,0 +1,3 @@
+pregunta1;0;razon1
+pregunta2;1;razon2
+pregunta3;0;razon3

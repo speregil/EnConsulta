@@ -1,0 +1,3 @@
+examen1;resultado1
+examen2;resultado2
+examen3;resultado3

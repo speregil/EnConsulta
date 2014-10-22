@@ -1,0 +1,3 @@
+examen1;0;razon1
+examen2;1;razon2
+examen3;0;razon3
