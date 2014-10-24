@@ -1,0 +1,3 @@
+diagnostico1
+diagnostico2
+diagnostico3

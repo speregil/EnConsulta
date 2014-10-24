@@ -47,10 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Data Scripts\DatosCasos.cs" />
+     <Compile Include="Assets\Scripts\Data Scripts\DatosEstudiante.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <None Include="Assets\Resources\enfermedadActual.txt" />
      <None Include="Assets\Resources\motivoConsulta.txt" />
      <None Include="Assets\Resources\resultadosExamenes.txt" />
+     <None Include="Assets\Resources\diagnosticosPosibles.txt" />
      <None Include="Assets\Resources\examenesCalificacion.txt" />
      <None Include="Assets\Resources\preguntasCalificacion.txt" />
      <None Include="Assets\Resources\antecedentes.txt" />

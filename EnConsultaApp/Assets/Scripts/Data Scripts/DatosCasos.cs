@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// Clase que modela la infromacion del caso actual y permite recuperalos datos
+// durante la ejecucion. Este scrip tambien se encarga de mantener vivo el objeto 
+// DataManager a lo largo de la ejecucion del programa
 public class DatosCasos : MonoBehaviour {
 
 	//------------------------------------------------------------------------------------
@@ -36,6 +39,9 @@ public class DatosCasos : MonoBehaviour {
 	// y la relevancia que el profesor dispone de cada uno de ellos
 	public	Dictionary<string, string[]>	examenesCalificacion;
 
+	// Continene una lista con los posibles diagnoticos al caso, dispuestos por el profesor
+	public 	List<string>					diagnosticosPosibles; 
+
 	//---------------------------------------------------------------------------------------
 	// Constructor
 	//---------------------------------------------------------------------------------------
@@ -53,6 +59,7 @@ public class DatosCasos : MonoBehaviour {
 		preguntasCalificacion = new Dictionary<string, string[]>();
 		resultadosExamenes = new Dictionary<string, string>();
 		examenesCalificacion = new Dictionary<string, string[]>();
+		diagnosticosPosibles = new List<string>();
 
 		Inicializar();
 	}
@@ -129,6 +136,13 @@ public class DatosCasos : MonoBehaviour {
 			valor[0] = tripleta[1];
 			valor[1] = tripleta[2];
 			examenesCalificacion.Add(tripleta[0],valor);
+		}
+
+		//carga diagnosticosPosibles
+		request = (TextAsset)Resources.Load("diagnosticosPosibles", typeof(TextAsset));
+		data = request.text.Split('\n');
+		for(int i=0;i < data.Length;i++){
+			diagnosticosPosibles.Add(data[i]);
 		}
 	}
 }
