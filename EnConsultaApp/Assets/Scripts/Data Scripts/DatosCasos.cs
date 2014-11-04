@@ -77,14 +77,14 @@ public class DatosCasos : MonoBehaviour {
 		Debug.Log("iniciando");
 
 		// Carga motivoConsulta
-		TextAsset request = (TextAsset)Resources.Load("motivoConsulta", typeof(TextAsset));
+		TextAsset request = (TextAsset)Resources.Load("data/motivoConsulta", typeof(TextAsset));
 		string[] data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			motivoConsulta.Add(data[i]);
 		}
 
 		//carga enfermedad actual
-		request = (TextAsset)Resources.Load("enfermedadActual", typeof(TextAsset));
+		request = (TextAsset)Resources.Load("data/enfermedadActual", typeof(TextAsset));
 		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			string[] dupla = data[i].Split(';');
@@ -92,7 +92,7 @@ public class DatosCasos : MonoBehaviour {
 		}
 
 		//carga antecedentes
-		request = (TextAsset)Resources.Load("antecedentes", typeof(TextAsset));
+		request = (TextAsset)Resources.Load("data/antecedentes", typeof(TextAsset));
 		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			string[] dupla = data[i].Split(';');
@@ -100,7 +100,7 @@ public class DatosCasos : MonoBehaviour {
 		}
 
 		//carga infoAdicional
-		request = (TextAsset)Resources.Load("infoAdicional", typeof(TextAsset));
+		request = (TextAsset)Resources.Load("data/infoAdicional", typeof(TextAsset));
 		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			string[] dupla = data[i].Split(';');
@@ -108,7 +108,7 @@ public class DatosCasos : MonoBehaviour {
 		}
 
 		//carga preguntasCalificacion
-		request = (TextAsset)Resources.Load("preguntasCalificacion", typeof(TextAsset));
+		request = (TextAsset)Resources.Load("data/preguntasCalificacion", typeof(TextAsset));
 		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			string[] tripleta = data[i].Split(';');
@@ -120,7 +120,7 @@ public class DatosCasos : MonoBehaviour {
 	
 
 		//carga resultadosExamenes
-		request = (TextAsset)Resources.Load("resultadosExamenes", typeof(TextAsset));
+		request = (TextAsset)Resources.Load("data/resultadosExamenes", typeof(TextAsset));
 		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			string[] dupla = data[i].Split(';');
@@ -128,7 +128,7 @@ public class DatosCasos : MonoBehaviour {
 		}
 
 		//carga examenesCalificacion
-		request = (TextAsset)Resources.Load("examenesCalificacion", typeof(TextAsset));
+		request = (TextAsset)Resources.Load("data/examenesCalificacion", typeof(TextAsset));
 		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			string[] tripleta = data[i].Split(';');
@@ -139,10 +139,12 @@ public class DatosCasos : MonoBehaviour {
 		}
 
 		//carga diagnosticosPosibles
-		request = (TextAsset)Resources.Load("diagnosticosPosibles", typeof(TextAsset));
+		request = (TextAsset)Resources.Load("data/diagnosticosPosibles", typeof(TextAsset));
 		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			diagnosticosPosibles.Add(data[i]);
 		}
+
+		Debug.Log("inicio exitoso");
 	}
 }
