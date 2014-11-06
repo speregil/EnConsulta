@@ -49,6 +49,9 @@
      <Compile Include="Assets\Scripts\Data Scripts\DatosCasos.cs" />
      <Compile Include="Assets\Scripts\Data Scripts\DatosEstudiante.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ActivateTrigger.cs" />
+     <Compile Include="Assets\Scripts\Manager Scripts\ExamenFisicoManager.cs" />
+     <Compile Include="Assets\Scripts\Manager Scripts\MainManager.cs" />
+     <Compile Include="Assets\Scripts\Manager Scripts\MenuManager.cs" />
      <None Include="Assets\Resources\Data\enfermedadActual.txt" />
      <None Include="Assets\Resources\Data\motivoConsulta.txt" />
      <None Include="Assets\Resources\Data\resultadosExamenes.txt" />

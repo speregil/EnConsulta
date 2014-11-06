@@ -45,11 +45,6 @@ public class DatosCasos : MonoBehaviour {
 	//---------------------------------------------------------------------------------------
 	// Constructor
 	//---------------------------------------------------------------------------------------
-
-	// No permite que el objeto se destruya al cambiar la escena
-	void Awake(){
-		DontDestroyOnLoad(this.gameObject);
-	}
 	
 	void Start () {
 		motivoConsulta = new List<string>();
