@@ -19,6 +19,9 @@ public class ExamenFisicoManager : MonoBehaviour {
 	public	GameObject		btnAnt;
 	public	int				nextIndex;
 	public 	int				prevIndex;
+	public	int[]			indxAnteriores;
+	public	List<string>	seleccionados;
+	public	GameObject		panelConfirmacion;
 
 	//---------------------------------------------------------------
 	// Constructor
@@ -31,7 +34,8 @@ public class ExamenFisicoManager : MonoBehaviour {
 		mm = (MainManager)dm.GetComponent(typeof(MainManager));
 		dc = (DatosCasos)dm.GetComponent(typeof(DatosCasos));
 		de = (DatosEstudiante)dm.GetComponent(typeof(DatosEstudiante));
-
+		seleccionados = new List<string>();
+		indxAnteriores = new int[dc.resultadosExamenes.Keys.Count];
 		prevIndex = 0;
 		nextIndex = MostrarExamenes(0);
 
@@ -52,8 +56,12 @@ public class ExamenFisicoManager : MonoBehaviour {
 		for(int i = index; i < keys.Length && !acabo; i++){
 			if(exIndex < examenes.Length){
 				GameObject toggle = examenes[exIndex];
-				Text txt = (Text)toggle.GetComponent(typeof(Text));
+				GameObject label = toggle.transform.GetChild(0).GetChild(1).gameObject;
+				Text txt = (Text)label.GetComponent(typeof(Text));
 				txt.text = keys[i];
+
+				Toggle go = (Toggle)toggle.GetComponent(typeof(Toggle));
+				go.interactable = true;
 				exIndex++;
 			}
 			else{
@@ -63,7 +71,7 @@ public class ExamenFisicoManager : MonoBehaviour {
 		}
 
 		if(acabo){
-			prevIndex = orIndex;	
+			indxAnteriores[prevIndex] = orIndex;
 			return index;
 		}
 
@@ -75,6 +83,10 @@ public class ExamenFisicoManager : MonoBehaviour {
 			GameObject toggle = examenes[i];
 			Text txt = (Text)toggle.GetComponent(typeof(Text));
 			txt.text = "";
+
+			GameObject ot = GameObject.Find("Toggle" + (i+1));
+			Toggle t = (Toggle)ot.GetComponent(typeof(Toggle));
+			t.isOn = false;
 		}
 	}
 
@@ -83,6 +95,7 @@ public class ExamenFisicoManager : MonoBehaviour {
 		LimpiarPagina();
 
 		btnAnt.SetActive(true);
+		prevIndex++;
 		nextIndex = MostrarExamenes(nextIndex);
 
 		if(nextIndex == 0)
@@ -94,12 +107,42 @@ public class ExamenFisicoManager : MonoBehaviour {
 		LimpiarPagina();
 
 		btnSig.SetActive(true);
-		nextIndex = MostrarExamenes(prevIndex);
-
+		prevIndex--;
+		nextIndex = MostrarExamenes(indxAnteriores[prevIndex]);
 		if(prevIndex == 0)
 			btnAnt.SetActive(false);
 	}
 
+	public void AgregarSeleccionado(GameObject toggle){
+
+		Toggle t = (Toggle)toggle.GetComponent(typeof(Toggle));
+		GameObject l = toggle.transform.GetChild(0).GetChild(1).gameObject;
+		Text txt = (Text)l.GetComponent(typeof(Text));
+		string llave = txt.text;
+		if(t.isOn){
+			if(!seleccionados.Contains(llave))
+				Debug.Log("Meti: " + llave);
+				seleccionados.Add(llave);
+		}
+		else{
+			if(!llave.Equals(""))
+				seleccionados.Remove(llave);
+		}
+	}
+
+	public void Seleccionar(){
+		panelConfirmacion.SetActive(true);
+		GameObject panel = GameObject.Find("txtLista");
+
+		Text txt = (Text)panel.GetComponent(typeof(Text));
+		string lista = "";
+
+		for(int i = 0; i < seleccionados.Count; i++){
+			lista = lista + "\n" + seleccionados[i];
+		}
+
+		txt.text = lista;
+	}
 	// Update is called once per frame
 	void Update () {
 	
