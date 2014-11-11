@@ -17,6 +17,7 @@ public class ExamenFisicoManager : MonoBehaviour {
 	// Referecnia a los panles del modulo
 	public 	GameObject		panelConfirmacion;
 	public 	GameObject		panelResultados;
+	public 	GameObject		panelMedia;
 	// Identificador del modulo = ModuloExamenFisico
 	public	string 			IDModulo;
 	// Lista con los 8 toggles que comforman el panel de seleccion
@@ -274,4 +275,15 @@ public class ExamenFisicoManager : MonoBehaviour {
 		if(prevIndex == 0)
 			btnAntResultados.SetActive(false);
 	}
+
+	public void MostrarMedia(GameObject resultado){
+		panelMedia.SetActive(true);
+		string text = "No result";
+		Text label = (Text)resultado.GetComponent(typeof(Text));
+		dc.resultadosExamenes.TryGetValue(label.text,out text);
+		string[] parse = text.Split(':');
+		GameObject titulo = panelMedia.transform.GetChild(0).gameObject;
+		label = (Text)titulo.GetComponent(typeof(Text));
+		label.text = parse[0];
+ 	}
 }
