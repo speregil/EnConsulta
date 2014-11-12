@@ -35,6 +35,9 @@ public class ExamenFisicoManager : MonoBehaviour {
 	private	int[]			indxAnteriores;
 	// Guarda los examenes selecionados por el estudiante
 	private	List<string>	seleccionados;
+	//Guarda la direccion al audio actual de una lista de resultados
+	private	string			audioActual;
+	private	string			imagenActual;
 
 	//-------------------------------------------------------------------------------------------------
 	// Constructor
@@ -282,8 +285,38 @@ public class ExamenFisicoManager : MonoBehaviour {
 		Text label = (Text)resultado.GetComponent(typeof(Text));
 		dc.resultadosExamenes.TryGetValue(label.text,out text);
 		string[] parse = text.Split(':');
-		GameObject titulo = panelMedia.transform.GetChild(0).gameObject;
-		label = (Text)titulo.GetComponent(typeof(Text));
-		label.text = parse[0];
+
+
+		switch (parse[1]){
+		case "texto":
+			GameObject panelTexto = panelMedia.transform.GetChild(1).gameObject;
+			panelTexto.SetActive(true);
+			panelTexto = panelTexto.transform.GetChild(0).gameObject;
+			label = (Text)panelTexto.GetComponent(typeof(Text));
+			label.text = parse[0];
+			break;
+
+		case "imagen":
+			GameObject spriteImagen = panelMedia.transform.GetChild(3).gameObject;
+			spriteImagen.SetActive(true);
+			Image render = (Image)spriteImagen.GetComponent(typeof(Image));
+			render.sprite = (Sprite)Resources.Load("Imagenes/" + parse[0], typeof(Sprite));
+			break;
+
+		case "audio":
+			GameObject botonAudio = panelMedia.transform.GetChild(2).gameObject;
+			botonAudio.SetActive(true);
+			audioActual = parse[0];
+			break;
+
+		default:
+			break;
+		}
  	}
+
+	public void CorrerAudioActual(){
+		AudioSource audio = (AudioSource)this.gameObject.GetComponent(typeof(AudioSource));
+		audio.clip = (AudioClip)Resources.Load("Audio/" + audioActual, typeof(AudioClip));
+		audio.Play();
+	}
 }
