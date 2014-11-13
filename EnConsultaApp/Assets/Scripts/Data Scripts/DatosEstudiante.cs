@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,6 +10,9 @@ public class DatosEstudiante : MonoBehaviour {
 	//-----------------------------------------------------------------------
 	// Atributos
 	//-----------------------------------------------------------------------
+
+	//Informacion del estudiante
+	public string usuario;
 
 	// Guarda las preguntas seleccionadas por el estudiante en el modulo correspondiente
 	public List<string> seleccionInfoAdicional;
@@ -29,6 +33,7 @@ public class DatosEstudiante : MonoBehaviour {
 		seleccionInfoAdicional = new List<string>();
 		seleccionExamenes = new List<string>();
 		diagnostico = "sinDiagnostico";
+		usuario = "sinUsuario";
 	}
 
 	//------------------------------------------------------------------------
@@ -43,5 +48,10 @@ public class DatosEstudiante : MonoBehaviour {
 	//Agrega un examen a la lista correspondiente
 	public void AgregarSeleccionExamen(string examen){
 		seleccionExamenes.Add(examen);
+	}
+
+	//Asigna el nombre de usuario
+	public void AsignarUsuario(Text texto) {
+		usuario = texto.text;
 	}
 }

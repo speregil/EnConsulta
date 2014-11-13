@@ -52,8 +52,11 @@
      <Compile Include="Assets\Scripts\Manager Scripts\ExamenFisicoManager.cs" />
      <Compile Include="Assets\Scripts\Manager Scripts\MainManager.cs" />
      <Compile Include="Assets\Scripts\Manager Scripts\MenuManager.cs" />
+     <Compile Include="Assets\Scripts\Recorder Scripts\ControladorMicrofono.cs" />
+     <Compile Include="Assets\Scripts\Recorder Scripts\SavWav.cs" />
      <None Include="Assets\Resources\Data\enfermedadActual.txt" />
      <None Include="Assets\Resources\Data\motivoConsulta.txt" />
+     <None Include="Assets\Resources\Data\nombreCaso.txt" />
      <None Include="Assets\Resources\Data\resultadosExamenes.txt" />
      <None Include="Assets\Resources\Data\diagnosticosPosibles.txt" />
      <None Include="Assets\Resources\Data\examenesCalificacion.txt" />

@@ -11,6 +11,9 @@ public class DatosCasos : MonoBehaviour {
 	// Atributos
 	//------------------------------------------------------------------------------------
 
+	// Contiene el nombre del caso
+	public string							nombreCaso;
+
 	// Contiene los distintos parrafos de informacion que hacer parte del motivo de la
 	// consulta expuesta por el paciente
 	public	List<string>					motivoConsulta;
@@ -47,6 +50,7 @@ public class DatosCasos : MonoBehaviour {
 	//---------------------------------------------------------------------------------------
 	
 	void Start () {
+		nombreCaso = "sinNombre";
 		motivoConsulta = new List<string>();
 		enfermedadActual = new Dictionary<string,string>();
 		antecedentes = new Dictionary<string, string>();
@@ -71,9 +75,14 @@ public class DatosCasos : MonoBehaviour {
 	public void Inicializar(){
 		Debug.Log("iniciando");
 
-		// Carga motivoConsulta
-		TextAsset request = (TextAsset)Resources.Load("data/motivoConsulta", typeof(TextAsset));
+		//carga nombreCaso
+		TextAsset request = (TextAsset)Resources.Load("data/nombreCaso", typeof(TextAsset));
 		string[] data = request.text.Split('\n');
+		nombreCaso = data[0];
+
+		// Carga motivoConsulta
+		request = (TextAsset)Resources.Load("data/motivoConsulta", typeof(TextAsset));
+		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			motivoConsulta.Add(data[i]);
 		}
