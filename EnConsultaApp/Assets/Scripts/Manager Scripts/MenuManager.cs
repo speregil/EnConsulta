@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour {
 	// Atributos
 	//-----------------------------------------------------------------------
 
+	// Escena de inicio del juego
+	public 	string		escenaInicio; 
 	// Axeso a los metodos de control del juego
 	private MainManager mm;
 	//-----------------------------------------------------------------------
@@ -27,7 +29,7 @@ public class MenuManager : MonoBehaviour {
 
 	// Lanza el primer modulo del caso
 	public void IniciarCaso(){
-		mm.CambiarModulo("ModuloExamenFisico");
+		mm.CambiarModulo(escenaInicio);
 	}
 
 	// Update is called once per frame
