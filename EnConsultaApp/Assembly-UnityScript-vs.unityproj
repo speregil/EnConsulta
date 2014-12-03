@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>F:/Unity46/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>F:/Unity46/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -50,17 +50,17 @@
      <Compile Include="Assets\Scripts\Camera Scripts\SmoothFollow.js" />
      <Compile Include="Assets\Scripts\Camera Scripts\SmoothLookAt.js" />
      <Compile Include="Assets\Scripts\General Scripts\DragRigidbody.js" />
-     <None Include="Assets\Resources\Data\enfermedadActual.txt" />
-     <None Include="Assets\Resources\Data\motivoConsulta.txt" />
-     <None Include="Assets\Resources\Data\nombreCaso.txt" />
-     <None Include="Assets\Resources\Data\resultadosExamenes.txt" />
      <None Include="Assets\Resources\Data\diagnosticosPosibles.txt" />
-     <None Include="Assets\Resources\Data\examenesCalificacion.txt" />
-     <None Include="Assets\Resources\Data\preguntasCalificacion.txt" />
-     <None Include="Assets\Resources\Data\antecedentes.txt" />
+     <None Include="Assets\Resources\Data\nombreCaso.txt" />
+     <None Include="Assets\Resources\Data\motivoConsulta.txt" />
      <None Include="Assets\Resources\Data\infoAdicional.txt" />
+     <None Include="Assets\Resources\Data\resultadosExamenes.txt" />
+     <None Include="Assets\Resources\Data\preguntasCalificacion.txt" />
+     <None Include="Assets\Resources\Data\enfermedadActual.txt" />
+     <None Include="Assets\Resources\Data\antecedentes.txt" />
+     <None Include="Assets\Resources\Data\examenesCalificacion.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>F:/Unity46/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
