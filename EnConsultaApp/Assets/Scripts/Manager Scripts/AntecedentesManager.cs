@@ -142,4 +142,8 @@ public class AntecedentesManager : MonoBehaviour {
 		panelRespuestas.SetActive(false);
 		
 	}
+
+	public void AvanzarModulo(){
+		mm.CambiarModulo("moduloInfoAdicional");
+	}
 }

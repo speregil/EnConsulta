@@ -24,7 +24,10 @@ public class InfoAdicionalManager : MonoBehaviour {
 	
 	void Start () {
 		// Inicializa la conexion con los scripts del DataManager
-		
+		GameObject dm = GameObject.Find("DataManager");
+		mm = (MainManager)dm.GetComponent(typeof(MainManager));
+		dc = (DatosCasos)dm.GetComponent(typeof(DatosCasos));
+		de = (DatosEstudiante)dm.GetComponent(typeof(DatosEstudiante));
 	}
 
 	
@@ -46,5 +49,9 @@ public class InfoAdicionalManager : MonoBehaviour {
 	public void QuitarRespuestas(){
 		panelRespuestas.SetActive(false);
 		
+	}
+
+	public void AvanzarModulo(){
+		mm.CambiarModulo("ModuloExamenFisico");
 	}
 }

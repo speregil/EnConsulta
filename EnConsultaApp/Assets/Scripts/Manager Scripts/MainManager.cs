@@ -21,7 +21,7 @@ public class MainManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		moduloActual = "Menu";
+		moduloActual = "MainMenu";
 	}
 
 	//-----------------------------------------------------------------------------
@@ -31,10 +31,5 @@ public class MainManager : MonoBehaviour {
 	public void CambiarModulo(string IDModulo){
 		moduloActual = IDModulo;
 		Application.LoadLevel(IDModulo);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
