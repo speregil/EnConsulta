@@ -285,33 +285,32 @@ public class ExamenFisicoManager : MonoBehaviour {
 		Text label = (Text)resultado.GetComponent(typeof(Text));
 		dc.resultadosExamenes.TryGetValue(label.text,out text);
 		string[] parse = text.Split(':');
+		Debug.Log(parse[1]);
 
 
-		switch (parse[1]){
-		case "texto":
+		if(parse[1].Equals("text")){
 			GameObject panelTexto = panelMedia.transform.GetChild(1).gameObject;
 			panelTexto.SetActive(true);
 			panelTexto = panelTexto.transform.GetChild(0).gameObject;
 			label = (Text)panelTexto.GetComponent(typeof(Text));
+			Debug.Log(parse[0]);
 			label.text = parse[0];
-			break;
+		}
 
-		case "imagen":
+		else if(parse[1].Equals("img")){
 			GameObject spriteImagen = panelMedia.transform.GetChild(3).gameObject;
 			spriteImagen.SetActive(true);
 			Image render = (Image)spriteImagen.GetComponent(typeof(Image));
 			render.sprite = (Sprite)Resources.Load("Imagenes/" + parse[0], typeof(Sprite));
-			break;
+		}
 
-		case "audio":
+		else if(parse[1].Equals("aud")){
 			GameObject botonAudio = panelMedia.transform.GetChild(2).gameObject;
 			botonAudio.SetActive(true);
 			audioActual = parse[0];
-			break;
-
-		default:
-			break;
 		}
+		else
+			Debug.Log("Default");
  	}
 
 	public void CorrerAudioActual(){

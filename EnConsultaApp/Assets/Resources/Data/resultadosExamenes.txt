@@ -1,3 +1,3 @@
-examen1;resultado1:texto
-examen2;cicatriz:imagen
-examen3;Heartbeat:audio
+examen1;resultado1:text
+examen2;cicatriz:img
+examen3;Heartbeat:aud
