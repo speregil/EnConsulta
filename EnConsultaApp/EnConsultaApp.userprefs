@@ -1,15 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Data\resultadosExamenes.txt">
-    <Files>
-      <File FileName="Assets\Scripts\Manager Scripts\ExamenFisicoManager.cs" Line="55" Column="49" />
-      <File FileName="Assets\Scripts\Data Scripts\DatosEstudiante.cs" Line="23" Column="43" />
-      <File FileName="Assets\Scripts\Manager Scripts\ImpresionDiagnosticaManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Manager Scripts\TratamientoManager.cs" Line="79" Column="78" />
-      <File FileName="Assets\Scripts\Data Scripts\DatosCasos.cs" Line="142" Column="22" />
-      <File FileName="Assets\Resources\Data\resultadosExamenes.txt" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
