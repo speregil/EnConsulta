@@ -48,9 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Data Scripts\DatosCasos.cs" />
      <Compile Include="Assets\Scripts\Data Scripts\DatosEstudiante.cs" />
-     <Compile Include="Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <Compile Include="Assets\Scripts\Manager Scripts\AntecedentesManager.cs" />
      <Compile Include="Assets\Scripts\Manager Scripts\ExamenFisicoManager.cs" />
+     <Compile Include="Assets\Scripts\Manager Scripts\ImpresionDiagnosticaManager.cs" />
      <Compile Include="Assets\Scripts\Manager Scripts\InfoAdicionalManager.cs" />
      <Compile Include="Assets\Scripts\Manager Scripts\MainManager.cs" />
      <Compile Include="Assets\Scripts\Manager Scripts\MenuManager.cs" />

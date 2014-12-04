@@ -74,7 +74,7 @@ public class ExamenFisicoManager : MonoBehaviour {
 		int orIndex = index;
 		int exIndex = 0;
 		// Recupera la lista de examenes del DataManager
-	    string[] keys = new string[dc.resultadosExamenes.Keys.Count];
+		string[] keys = new string[dc.resultadosExamenes.Keys.Count];
 		dc.resultadosExamenes.Keys.CopyTo(keys, 0);
 		// Itera para dibujar el nombre de cada examens
 		for(int i = index; i < keys.Length && !acabo; i++){
@@ -84,13 +84,13 @@ public class ExamenFisicoManager : MonoBehaviour {
 				GameObject label = toggle.transform.GetChild(0).GetChild(1).gameObject;
 				Text txt = (Text)label.GetComponent(typeof(Text));
 				txt.text = keys[i];
-
+				
 				Toggle go = (Toggle)toggle.GetComponent(typeof(Toggle));
 				go.interactable = true;
 				// Determina si el examen ya habia sido seleccionado previamente y lo deja seleccionado
 				if(seleccionados.Contains(txt.text))
 					go.isOn = true;
-
+				
 				exIndex++;
 			}
 			else{
@@ -98,7 +98,7 @@ public class ExamenFisicoManager : MonoBehaviour {
 				acabo = true;
 			}
 		}
-
+		
 		if(acabo){
 			//Retorna el index en el que se debe empezar a dibujar si faltan examenes en la lista
 			indxAnteriores[prevIndex] = orIndex;
@@ -106,6 +106,7 @@ public class ExamenFisicoManager : MonoBehaviour {
 		}
 		// Retorna 0 si la lista se termino de dibujar
 		return 0;
+
 	}
 
 	// Limpia los label y los Toggle del panel de seleccion
@@ -317,5 +318,9 @@ public class ExamenFisicoManager : MonoBehaviour {
 		AudioSource audio = (AudioSource)this.gameObject.GetComponent(typeof(AudioSource));
 		audio.clip = (AudioClip)Resources.Load("Audio/" + audioActual, typeof(AudioClip));
 		audio.Play();
+	}
+
+	public void AvanzarModulo(){
+		mm.CambiarModulo("ModuloImpresionDiagnostica");
 	}
 }

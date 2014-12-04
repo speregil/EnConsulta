@@ -1,3 +1,9 @@
 diagnostico1
 diagnostico2
 diagnostico3
+diagnostico4
+diagnostico5
+diagnostico6
+diagnostico7
+diagnostico8
+diagnostico9

@@ -21,7 +21,7 @@ public class DatosEstudiante : MonoBehaviour {
 	public List<string> seleccionExamenes;
 
 	// Guerda el diagnostico elegido por el estudiante
-	public string diagnostico;
+	public List<string> diagnosticos;
 
 	//------------------------------------------------------------------------
 	// Constructor
@@ -32,7 +32,7 @@ public class DatosEstudiante : MonoBehaviour {
 	void Start () {
 		seleccionInfoAdicional = new List<string>();
 		seleccionExamenes = new List<string>();
-		diagnostico = "sinDiagnostico";
+		diagnosticos = new List<string>();
 		usuario = "sinUsuario";
 	}
 
