@@ -1,0 +1,4 @@
+Tratamiento1;0;razon1
+Tratamiento2;0;razon2
+Tratamiento3;0;razon3
+Tratamiento4;0;razon4

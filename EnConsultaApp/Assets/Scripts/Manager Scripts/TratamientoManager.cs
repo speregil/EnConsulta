@@ -19,7 +19,7 @@ public class TratamientoManager : MonoBehaviour {
 	// Identificador del modulo = ModuloExamenFisico
 	public	string 			IDModulo;
 	// Lista con los 8 toggles que comforman el panel de seleccion
-	public	GameObject[]	examenes;
+	public	GameObject[]	tratamientos;
 	// Lista con los 8 labels que conforman el panel de resultados
 	public	GameObject[]	resultados;
 	// Botones para avanzar y retroceder en el panel de seleccion y resultados
@@ -27,11 +27,11 @@ public class TratamientoManager : MonoBehaviour {
 	public	GameObject		btnAnt;
 	public	GameObject		btnSigResultados;
 	public	GameObject		btnAntResultados;
-	// Controlan la posicion actual y previa en la viualizacion de los examenes
+	// Controlan la posicion actual y previa en la viualizacion de los tratamientos
 	private	int				nextIndex;
 	private	int				prevIndex;
 	private	int[]			indxAnteriores;
-	// Guarda los examenes selecionados por el estudiante
+	// Guarda los tratamientos selecionados por el estudiante
 	private	List<string>	seleccionados;
 	//Guarda la direccion al audio actual de una lista de resultados
 	private	string			audioActual;
@@ -49,11 +49,11 @@ public class TratamientoManager : MonoBehaviour {
 		de = (DatosEstudiante)dm.GetComponent(typeof(DatosEstudiante));
 		// Inicializa la lista de seleccionados
 		seleccionados = new List<string>();
-		// Iniciliza los atributos de control para recorrer los examenes
-		indxAnteriores = new int[dc.resultadosExamenes.Keys.Count];
+		// Iniciliza los atributos de control para recorrer los tratamientos
+		indxAnteriores = new int[dc.tratamientosPosibles.Keys.Count];
 		prevIndex = 0;
-		// Dibuja los examenes disponibles en el panel
-		nextIndex = MostrarExamenes(0);
+		// Dibuja los tratamientos disponibles en el panel
+		nextIndex = Mostrartratamientos(0);
 		if(nextIndex != 0)
 			btnSig.SetActive(true);
 	}
@@ -62,23 +62,23 @@ public class TratamientoManager : MonoBehaviour {
 	// Metodos del panel de Seleccion y Confirmacion
 	//---------------------------------------------------------------------------------------------------
 	
-	// Dibuja los examenes disponibles en el panel de seleccion
-	// Recibe por parametro el index de la lista de examenes donde debe emepzar a dibujar
+	// Dibuja los tratamientos disponibles en el panel de seleccion
+	// Recibe por parametro el index de la lista de tratamientos donde debe emepzar a dibujar
 	// Retorna el index del examen donde qued{o si la lista continua y no se logro dibujar toda
 	// Retorna 0 si la lista se completo de dibujar
-	public int MostrarExamenes(int index){
+	public int Mostrartratamientos(int index){
 		// Variables de control
 		bool acabo = false;
 		int orIndex = index;
 		int exIndex = 0;
-		// Recupera la lista de examenes del DataManager
-		string[] keys = new string[dc.resultadosExamenes.Keys.Count];
-		dc.resultadosExamenes.Keys.CopyTo(keys, 0);
+		// Recupera la lista de tratamientos del DataManager
+		string[] keys = new string[dc.tratamientosPosibles.Keys.Count];
+		dc.tratamientosPosibles.Keys.CopyTo(keys, 0);
 		// Itera para dibujar el nombre de cada examens
 		for(int i = index; i < keys.Length && !acabo; i++){
-			//Itera en la lista de examenes hasta que se acaban los labels diponebles en el panel
-			if(exIndex < examenes.Length){
-				GameObject toggle = examenes[exIndex];
+			//Itera en la lista de tratamientos hasta que se acaban los labels diponebles en el panel
+			if(exIndex < tratamientos.Length){
+				GameObject toggle = tratamientos[exIndex];
 				GameObject label = toggle.transform.GetChild(0).GetChild(1).gameObject;
 				Text txt = (Text)label.GetComponent(typeof(Text));
 				txt.text = keys[i];
@@ -98,7 +98,7 @@ public class TratamientoManager : MonoBehaviour {
 		}
 		
 		if(acabo){
-			//Retorna el index en el que se debe empezar a dibujar si faltan examenes en la lista
+			//Retorna el index en el que se debe empezar a dibujar si faltan tratamientos en la lista
 			indxAnteriores[prevIndex] = orIndex;
 			return index;
 		}
@@ -109,8 +109,8 @@ public class TratamientoManager : MonoBehaviour {
 	
 	// Limpia los label y los Toggle del panel de seleccion
 	public void LimpiarPagina(){
-		for(int i = 0; i < examenes.Length; i++){
-			GameObject toggle = examenes[i];
+		for(int i = 0; i < tratamientos.Length; i++){
+			GameObject toggle = tratamientos[i];
 			
 			
 			GameObject label = toggle.transform.GetChild(0).GetChild(1).gameObject;
@@ -130,7 +130,7 @@ public class TratamientoManager : MonoBehaviour {
 		
 		btnAnt.SetActive(true);
 		prevIndex++;
-		nextIndex = MostrarExamenes(nextIndex);
+		nextIndex = Mostrartratamientos(nextIndex);
 		
 		if(nextIndex == 0)
 			btnSig.SetActive(false);
@@ -143,7 +143,7 @@ public class TratamientoManager : MonoBehaviour {
 		
 		btnSig.SetActive(true);
 		prevIndex--;
-		nextIndex = MostrarExamenes(indxAnteriores[prevIndex]);
+		nextIndex = Mostrartratamientos(indxAnteriores[prevIndex]);
 		if(prevIndex == 0)
 			btnAnt.SetActive(false);
 	}
@@ -177,7 +177,7 @@ public class TratamientoManager : MonoBehaviour {
 		
 		Text txt = (Text)panel.GetComponent(typeof(Text));
 		string lista = "";
-		// Compone todos los examenes en una misma cadena
+		// Compone todos los tratamientos en una misma cadena
 		for(int i = 0; i < seleccionados.Count; i++){
 			lista = lista + "\n" + seleccionados[i];
 		}
@@ -190,9 +190,9 @@ public class TratamientoManager : MonoBehaviour {
 		panelConfirmacion.SetActive(false);
 	}
 	
-	// Confirma la seleccion de examenes e inicia la muestra de resultados
+	// Confirma la seleccion de tratamientos e inicia la muestra de resultados
 	public void Confirmar(){
-		de.seleccionExamenes = seleccionados;
+		de.selecciontratamientos = seleccionados;
 		panelConfirmacion.SetActive(false);
 		GameObject.Find("Clipboard").SetActive(false);
 		panelResultados.SetActive(true);
@@ -215,7 +215,7 @@ public class TratamientoManager : MonoBehaviour {
 		int exIndex = 0;
 		// Itera para dibujar el nombre de cada examens
 		for(int i = index; i < seleccionados.Count && !acabo; i++){
-			//Itera en la lista de examenes hasta que se acaban los labels diponebles en el panel
+			//Itera en la lista de tratamientos hasta que se acaban los labels diponebles en el panel
 			if(exIndex < resultados.Length){
 				GameObject label = resultados[exIndex];
 				Text txt = (Text)label.GetComponent(typeof(Text));
@@ -232,7 +232,7 @@ public class TratamientoManager : MonoBehaviour {
 		}
 		
 		if(acabo){
-			//Retorna el index en el que se debe empezar a dibujar si faltan examenes en la lista
+			//Retorna el index en el que se debe empezar a dibujar si faltan tratamientos en la lista
 			indxAnteriores[prevIndex] = orIndex;
 			return index;
 		}
@@ -282,7 +282,7 @@ public class TratamientoManager : MonoBehaviour {
 		panelMedia.SetActive(true);
 		string text = "No result";
 		Text label = (Text)resultado.GetComponent(typeof(Text));
-		dc.resultadosExamenes.TryGetValue(label.text,out text);
+		dc.tratamientosPosibles.TryGetValue(label.text,out text);
 		string[] parse = text.Split(':');
 		Debug.Log(parse[1]);
 		

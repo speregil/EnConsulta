@@ -45,6 +45,11 @@ public class DatosCasos : MonoBehaviour {
 	// Continene una lista con los posibles diagnoticos al caso, dispuestos por el profesor
 	public 	List<string>					diagnosticosPosibles; 
 
+	// Contienen una llave examen-valor,razon con los examenes dispuestos en la lista anterior
+	// y la relevancia que el profesor dispone de cada uno de ellos
+	public	Dictionary<string, string[]>	tratamientosPosibles;
+
+
 	//---------------------------------------------------------------------------------------
 	// Constructor
 	//---------------------------------------------------------------------------------------
@@ -59,6 +64,7 @@ public class DatosCasos : MonoBehaviour {
 		resultadosExamenes = new Dictionary<string, string>();
 		examenesCalificacion = new Dictionary<string, string[]>();
 		diagnosticosPosibles = new List<string>();
+		tratamientosPosibles = new Dictionary<string, string[]> ();
 
 		Inicializar();
 	}
@@ -147,6 +153,17 @@ public class DatosCasos : MonoBehaviour {
 		data = request.text.Split('\n');
 		for(int i=0;i < data.Length;i++){
 			diagnosticosPosibles.Add(data[i]);
+		}
+
+		//carga los tratamientos
+		request = (TextAsset)Resources.Load("data/tratamientoPosible", typeof(TextAsset));
+		data = request.text.Split('\n');
+		for(int i=0;i < data.Length;i++){
+			string[] tripleta = data[i].Split(';');
+			string[] valor = new string[2];
+			valor[0] = tripleta[1];
+			valor[1] = tripleta[2];
+			tratamientosPosibles.Add(tripleta[0],valor);
 		}
 
 		Debug.Log("inicio exitoso");

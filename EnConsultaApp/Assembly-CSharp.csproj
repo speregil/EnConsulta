@@ -66,6 +66,7 @@
      <None Include="Assets\Resources\Data\preguntasCalificacion.txt" />
      <None Include="Assets\Resources\Data\antecedentes.txt" />
      <None Include="Assets\Resources\Data\infoAdicional.txt" />
+     <None Include="Assets\Resources\Data\tratamientoPosible.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
