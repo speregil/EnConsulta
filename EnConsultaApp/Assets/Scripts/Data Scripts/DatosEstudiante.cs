@@ -20,6 +20,8 @@ public class DatosEstudiante : MonoBehaviour {
 	// Guarda las preguntas seleccionadas por el estudiante en el modulo correspondiente
 	public List<string> seleccionExamenes;
 
+	public List<string> seleccionTratamientos;
+
 	// Guerda el diagnostico elegido por el estudiante
 	public List<string> diagnosticos;
 

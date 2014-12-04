@@ -1,0 +1,4 @@
+Tratamiento1;resultado1:text
+Tratamiento2;resultado2:text
+Tratamiento3;resultado3:text
+Tratamiento4;resultado4:text

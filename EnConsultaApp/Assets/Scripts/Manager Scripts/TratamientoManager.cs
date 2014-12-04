@@ -50,7 +50,7 @@ public class TratamientoManager : MonoBehaviour {
 		// Inicializa la lista de seleccionados
 		seleccionados = new List<string>();
 		// Iniciliza los atributos de control para recorrer los tratamientos
-		indxAnteriores = new int[dc.tratamientosPosibles.Keys.Count];
+		indxAnteriores = new int[dc.resultadosTratamientos.Keys.Count];
 		prevIndex = 0;
 		// Dibuja los tratamientos disponibles en el panel
 		nextIndex = Mostrartratamientos(0);
@@ -72,8 +72,8 @@ public class TratamientoManager : MonoBehaviour {
 		int orIndex = index;
 		int exIndex = 0;
 		// Recupera la lista de tratamientos del DataManager
-		string[] keys = new string[dc.tratamientosPosibles.Keys.Count];
-		dc.tratamientosPosibles.Keys.CopyTo(keys, 0);
+		string[] keys = new string[dc.resultadosTratamientos.Keys.Count];
+		dc.resultadosTratamientos.Keys.CopyTo(keys, 0);
 		// Itera para dibujar el nombre de cada examens
 		for(int i = index; i < keys.Length && !acabo; i++){
 			//Itera en la lista de tratamientos hasta que se acaban los labels diponebles en el panel
@@ -192,7 +192,7 @@ public class TratamientoManager : MonoBehaviour {
 	
 	// Confirma la seleccion de tratamientos e inicia la muestra de resultados
 	public void Confirmar(){
-		de.selecciontratamientos = seleccionados;
+		de.seleccionTratamientos = seleccionados;
 		panelConfirmacion.SetActive(false);
 		GameObject.Find("Clipboard").SetActive(false);
 		panelResultados.SetActive(true);
@@ -282,7 +282,7 @@ public class TratamientoManager : MonoBehaviour {
 		panelMedia.SetActive(true);
 		string text = "No result";
 		Text label = (Text)resultado.GetComponent(typeof(Text));
-		dc.tratamientosPosibles.TryGetValue(label.text,out text);
+		dc.resultadosTratamientos.TryGetValue(label.text,out text);
 		string[] parse = text.Split(':');
 		Debug.Log(parse[1]);
 		

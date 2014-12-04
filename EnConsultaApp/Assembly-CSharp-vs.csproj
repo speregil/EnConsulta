@@ -60,6 +60,7 @@
      <None Include="Assets\Resources\Data\enfermedadActual.txt" />
      <None Include="Assets\Resources\Data\motivoConsulta.txt" />
      <None Include="Assets\Resources\Data\nombreCaso.txt" />
+     <None Include="Assets\Resources\Data\resultadosTratamientos.txt" />
      <None Include="Assets\Resources\Data\resultadosExamenes.txt" />
      <None Include="Assets\Resources\Data\diagnosticosPosibles.txt" />
      <None Include="Assets\Resources\Data\examenesCalificacion.txt" />
