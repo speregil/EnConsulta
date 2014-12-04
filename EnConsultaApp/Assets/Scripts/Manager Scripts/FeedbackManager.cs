@@ -48,7 +48,7 @@ public class FeedbackManager : MonoBehaviour {
 
 		feedback = new string[de.diagnosticos.Count];
 		de.diagnosticos.CopyTo (feedback, 0);
-		for (int pos = 0; pos < de.seleccionExamenes.Count && !acabo; pos++) {
+		for (int pos = 0; pos < de.diagnosticos.Count && !acabo; pos++) {
 			dc.diagnosticosCalificacion.TryGetValue(feedback[pos], out respuestas);
 			text= text +"\n"+feedback[pos]+": "+respuestas[0]+" "+respuestas[1];		
 		}
