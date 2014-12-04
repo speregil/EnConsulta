@@ -1,3 +1,9 @@
 diagnostico1;0;razon1
 diagnostico2;1;razon2
 diagnostico3;0;razon3
+diagnostico4;0;razon4
+diagnostico5;1;razon5
+diagnostico6;0;razon6
+diagnostico7;0;razon7
+diagnostico8;1;razon8
+diagnostico9;0;razon9
