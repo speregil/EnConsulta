@@ -53,6 +53,7 @@ public class DatosCasos : MonoBehaviour {
 	// y el resultado que estos arrojan
 	public	Dictionary<string, string>		resultadosTratamientos;
 
+	public	Dictionary<string, string[]>	diagnosticosCalificacion;
 
 	//---------------------------------------------------------------------------------------
 	// Constructor
@@ -70,6 +71,7 @@ public class DatosCasos : MonoBehaviour {
 		diagnosticosPosibles = new List<string>();
 		tratamientosPosibles = new Dictionary<string, string[]> ();
 		resultadosTratamientos = new Dictionary<string, string>();
+		diagnosticosCalificacion = new Dictionary<string, string[]>();
 
 		Inicializar();
 	}
@@ -177,6 +179,17 @@ public class DatosCasos : MonoBehaviour {
 		for(int i=0;i < data.Length;i++){
 			string[] dupla = data[i].Split(';');
 			resultadosTratamientos.Add(dupla[0],dupla[1]);
+		}
+
+		//diagnostico calificacion
+		request = (TextAsset)Resources.Load("data/diagnosticoCalificacion", typeof(TextAsset));
+		data = request.text.Split('\n');
+		for(int i=0;i < data.Length;i++){
+			string[] tripleta = data[i].Split(';');
+			string[] valor = new string[2];
+			valor[0] = tripleta[1];
+			valor[1] = tripleta[2];
+			diagnosticosCalificacion.Add(tripleta[0],valor);
 		}
 
 		Debug.Log("inicio exitoso");

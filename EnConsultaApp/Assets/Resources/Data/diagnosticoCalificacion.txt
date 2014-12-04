@@ -1,0 +1,3 @@
+diagnostico1;0;razon1
+diagnostico2;1;razon2
+diagnostico3;0;razon3

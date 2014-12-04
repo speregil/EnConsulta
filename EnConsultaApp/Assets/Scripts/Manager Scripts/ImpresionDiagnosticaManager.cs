@@ -50,7 +50,6 @@ public class ImpresionDiagnosticaManager : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------
 
 	public int MostrarDiagnosticos(int index){
-		Debug.Log("Diagnostico");
 		bool acabo = false;
 		int orIndex = index;
 		int exIndex = 0;
@@ -151,5 +150,6 @@ public class ImpresionDiagnosticaManager : MonoBehaviour {
 
 	public void Terminar(){
 		de.diagnosticos = seleccionados;
+		mm.CambiarModulo("ModuloFeedback");
 	}
 }
